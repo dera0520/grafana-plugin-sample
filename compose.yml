@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  grafana:
+    image: grafana/grafana:latest
+    container_name: grafana
+    hostname: grafana
+    ports:
+      - 3000:3000
+    volumes:
+      - ./etc/grafana.ini:/etc/grafana/grafana.ini
+      - varlib:/var/lib/grafana
+      - ./sample-plugin:/var/lib/grafana/plugins/sample-plugin
+
+volumes:
+  varlib:
